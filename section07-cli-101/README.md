@@ -2,6 +2,7 @@
 
 1. Intro to CLI
 2. Kafka Topics CLI
+3. Kafka Console Producer CLI
 
 ---
 
@@ -80,4 +81,119 @@ kafka-topics --bootstrap-server localhost:9092 --topic third_topic --describe
 
 ```bash
 kafka-topics --bootstrap-server localhost:9092 --topic first_topic --delete
+```
+
+# Kafka Console Producer CLI
+
+### Create `first_topic`.
+
+```bash
+kafka-topics --bootstrap-server localhost:9092 --topic first_topic --create --partitions 1
+```
+
+### Producing
+
+- Producing
+
+```bash
+kafka-console-producer --bootstrap-server localhost:9092 --topic first_topic
+
+> Hello World
+> My name is Joshua
+> I love Kafka
+> ^C (to exit the producer)
+```
+
+- Consuming (check if the messages are successfully sent.)
+
+```bash
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning
+```
+
+### Producing with Properties
+
+- Producing
+
+```bash
+kafka-console-producer --bootstrap-server localhost:9092 --topic first_topic --producer-property acks=all
+
+> Message is acked
+> Just for fun
+> Learning!
+```
+
+- Consuming
+
+```bash
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning
+```
+
+### Producing to a non-existing topic
+
+- Producing
+
+```bash
+kafka-console-producer --bootstrap-server localhost:9092 --topic new_topic
+
+> Hello World
+```
+
+- When you produce like above, you'll get an error like below:
+
+```plain
+WARN [Producer clientId=console-producer] The metadata response from the cluster reported a recoverable issue with correlation id 5 : {new_topic=LEADER_NOT_AVAILABLE} (org.apache.kafka.clients.NetworkClient)
+```
+
+- However, the `new_topic` has been created.
+
+```bash
+kafka-topics --bootstrap-server localhost:9092 --list
+kafka-topics --bootstrap-server localhost:9092 --topic new_topic --describe
+kafka-console-consumer --bootstrap-server localhost:9092 --topic new_topic --from-beginning
+```
+
+- In case you would like to change the default number of partitions, change the value of `num.partitions=3`.
+
+```bash
+cd /opt/homebrew/etc/kafka
+vi server.properties
+
+# The default number of log partitions per topic. More partitions allow greater
+# parallelism for consumption, but this will also result in more files across
+# the brokers.
+num.partitions=3
+```
+
+- Producing again
+
+```bash
+kafka-console-producer --bootstrap-server localhost:9092 --topic new_topic_2
+
+> Hello World
+```
+
+- However, the `new_topic_2` has been created with **3 partitions**.
+
+```bash
+kafka-topics --bootstrap-server localhost:9092 --topic new_topic_2 --describe
+```
+
+### Important Note: Please create topics with the appropriate number of partitions before producing to them!
+
+### Producing with Keys
+
+- Producing
+
+```bash
+kafka-console-producer --bootstrap-server localhost:9092 --topic first_topic --property parse.key=true --property key.separator=:
+
+> example key:example value
+> name:Joshua
+> name:Amber
+```
+
+- Consuming
+
+```bash
+kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning
 ```
