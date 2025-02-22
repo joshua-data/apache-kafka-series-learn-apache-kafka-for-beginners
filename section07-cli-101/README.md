@@ -6,6 +6,7 @@
 4. Kafka Console Consumer CLI
 5. Kafka Consumers in Groups CLI
 6. Kafka Consumer Groups CLI
+7. Resetting Offsets CLI
 
 ---
 
@@ -352,6 +353,72 @@ kafka-console-consumer \
 ```
 
 ### Describe the group now.
+
+```bash
+kafka-consumer-groups \
+    --bootstrap-server localhost:9092 \
+    --describe \
+    --group my-first-application
+```
+
+# Resetting Offsets CLI
+
+### Describe the consumer group.
+
+```bash
+kafka-consumer-groups \
+    --bootstrap-server localhost:9092 \
+    --describe \
+    --group my-first-application
+```
+
+# Dry Run: Rest the offsets to the beginning of each partition.
+
+```bash
+kafka-consumer-groups \
+    --bootstrap-server localhost:9092 \
+    --group my-first-application \
+    --reset-offsets \
+    --to-earliest \
+    --topic third_topic \
+    --dry-run
+```
+
+# Then, execute to reset the offsets, for real.
+
+```bash
+kafka-consumer-groups \
+    --bootstrap-server localhost:9092 \
+    --group my-first-application \
+    --reset-offsets \
+    --to-earliest \
+    --topic third_topic \
+    --execute
+```
+
+### Describe the consumer group again.
+
+- Then, you'll find the current offsets are all 0.
+
+```bash
+kafka-consumer-groups \
+    --bootstrap-server localhost:9092 \
+    --describe \
+    --group my-first-application
+```
+
+### Consume from where the offsets have been reset.
+
+```bash
+kafka-console-consumer \
+    --bootstrap-server localhost:9092 \
+    --topic third_topic \
+    --group my-first-application
+```
+
+### Describe the consumer group again.
+
+- Then, you'll find the current offsets are all updated.
 
 ```bash
 kafka-consumer-groups \
