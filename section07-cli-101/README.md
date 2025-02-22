@@ -5,6 +5,7 @@
 3. Kafka Console Producer CLI
 4. Kafka Console Consumer CLI
 5. Kafka Consumers in Groups CLI
+6. Kafka Consumer Groups CLI
 
 ---
 
@@ -301,4 +302,60 @@ kafka-console-consumer \
     --topic third_topic \
     --group my-second-application \
     --from-beginning
+```
+
+# Kafka Consumer Groups CLI
+
+### List consumer groups.
+
+```bash
+kafka-consumer-groups \
+    --bootstrap-server localhost:9092 \
+    --list
+```
+
+### Describe one specific group.
+
+```bash
+# First Group
+kafka-consumer-groups \
+    --bootstrap-server localhost:9092 \
+    --describe \
+    --group my-first-application
+
+# Second Group
+kafka-consumer-groups \
+    --bootstrap-server localhost:9092 \
+    --describe \
+    --group my-second-application
+```
+
+- If there're any `lags` over 0, run the command below, then you'll see the `lags` should be 0.
+
+```bash
+kafka-console-consumer \
+    --bootstrap-server localhost:9092 \
+    --topic third_topic \
+    --group my-second-application \
+    --from-beginning
+```
+
+### Start a consumer.
+    - same consumer group
+    - different topic
+
+```bash
+kafka-console-consumer \
+    --bootstrap-server localhost:9092 \
+    --topic first_topic \
+    --group my-first-application
+```
+
+### Describe the group now.
+
+```bash
+kafka-consumer-groups \
+    --bootstrap-server localhost:9092 \
+    --describe \
+    --group my-first-application
 ```
