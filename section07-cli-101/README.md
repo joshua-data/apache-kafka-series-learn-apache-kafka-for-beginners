@@ -4,6 +4,7 @@
 2. Kafka Topics CLI
 3. Kafka Console Producer CLI
 4. Kafka Console Consumer CLI
+5. Kafka Consumers in Groups CLI
 
 ---
 
@@ -245,4 +246,59 @@ kafka-console-consumer \
 
 ![](assets/2.png)
 
+# Kafka Consumers in Groups CLI
 
+### Create a topic with 3 partitions.
+
+```bash
+kafka-topics \
+    --bootstrap-server localhost:9092 \
+    --topic third_topic \
+    --create \
+    --partitions 3
+```
+
+### Start Consumers.
+
+```bash
+# Consumer 1
+kafka-console-consumer \
+    --bootstrap-server localhost:9092 \
+    --topic third_topic \
+    --group my-first-application
+
+# Consumer 2
+kafka-console-consumer \
+    --bootstrap-server localhost:9092 \
+    --topic third_topic \
+    --group my-first-application
+
+# Consumer 3
+kafka-console-consumer \
+    --bootstrap-server localhost:9092 \
+    --topic third_topic \
+    --group my-first-application
+```
+
+### Start Producing, then see messages being spread.
+
+```bash
+kafka-console-producer \
+    --bootstrap-server localhost:9092 \
+    --producer-property partitioner.class=org.apache.kafka.clients.producer.RoundRobinPartitioner \
+    --topic third_topic
+```
+
+![](assets/3.png)
+
+### Start another consumer of a different group from the beginning.
+
+- When you run below, it prints out all the messages. Once you run the same command once again, it doesn't prints out anything because `--from-beginning` argument is only helpful when there's no consumer offsets.
+
+```bash
+kafka-console-consumer \
+    --bootstrap-server localhost:9092 \
+    --topic third_topic \
+    --group my-second-application \
+    --from-beginning
+```
