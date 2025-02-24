@@ -5,3 +5,4 @@
 ### Useful Links
 - [Udemy](https://www.udemy.com/course/apache-kafka)
 - [Conduktor](https://conduktor.io/apache-kafka-for-beginners)
+- [W3Schools (Java)](https://www.w3schools.com/java/default.asp)
