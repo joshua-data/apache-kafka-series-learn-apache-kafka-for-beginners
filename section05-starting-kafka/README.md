@@ -35,7 +35,7 @@ kafka-topics
 - Open another terminal, and run the following command from the root of Apache Kafka to start Apache Kafka.
     
 ```bash
-/opt/homebrew/bin/kafka-server-start /opt/homebrew/etc/kafka/server.properties
+/opt/homebrew/opt/kafka/bin/kafka-server-start /opt/homebrew/etc/kafka/server.properties
 ```
     
 - Ensure to keep both terminals open, otherwise, you’ll shut down Kafka or Zookeeper.
