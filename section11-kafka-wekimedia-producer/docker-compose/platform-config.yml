@@ -10,7 +10,7 @@ database: # Database credentials, must match what you have in the docker-compose
 
 admin: # Define the local admin for the initial setup (mandatory)
   email: joshua@joshua
-  password: joshua
+  password: Joshua123!@#
 
 auth: # Define a local user (optional)
   local-users:
