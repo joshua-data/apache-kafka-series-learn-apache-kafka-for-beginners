@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "io.conduktor.demos"
+group = "io.github.joshua-data"
 version = "1.0-SNAPSHOT"
 
 repositories {
