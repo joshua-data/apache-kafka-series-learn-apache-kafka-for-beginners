@@ -1,0 +1,34 @@
+organization: # Name of your organization (mandatory)
+  name: "Joshua Data"
+
+database: # Database credentials, must match what you have in the docker-compose (mandatory)
+  host: "postgresql"
+  port: 5432
+  name: "conduktor-console"
+  username: "${DB_USERNAME}"
+  password: "${DB_PASSWORD}"
+
+admin: # Define the local admin for the initial setup (mandatory)
+  email: "${ADMIN_EMAIL}"
+  password: "${ADMIN_PASSWORD}" # 8 characters with 1 lowercase + 1 uppercase + 1 number + 1 special character
+
+auth: # Define a local user (optional)
+  local-users:
+    - email: "${LOCAL_USER_EMAIL}"
+      password: "${LOCAL_USER_PASSWORD}" # 8 characters with 1 lowercase + 1 uppercase + 1 number + 1 special character
+
+monitoring: # Monitoring settings (optional)
+  cortex-url: http://conduktor-monitoring:9009/
+  alert-manager-url: http://conduktor-monitoring:9010/
+  callback-url: http://conduktor-console:8080/monitoring/api/
+  notifications-callback-url: http://localhost:8080
+
+clusters: # Cluster and schema registry configuration (optional)
+  - id: joshua-kafka-cluster-1
+    name: Joshua Kafka Cluster 1
+    bootstrapServers: "kafka:19092"
+    schemaRegistry:
+      url: "http://schema-registry:8081"
+#    kafkaConnects:
+#      - url: http://kafka-connect:8083
+#        name: full stack kafka connect
