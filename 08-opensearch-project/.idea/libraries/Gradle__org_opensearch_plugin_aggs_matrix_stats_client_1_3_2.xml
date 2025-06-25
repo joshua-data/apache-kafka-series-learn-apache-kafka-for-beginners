@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opensearch.plugin:aggs-matrix-stats-client:1.3.2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.opensearch.plugin" artifactId="aggs-matrix-stats-client" version="1.3.2" baseVersion="1.3.2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opensearch.plugin/aggs-matrix-stats-client/1.3.2/1d363ee9bcf3015c3d72264f70c982fcc46890df/aggs-matrix-stats-client-1.3.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

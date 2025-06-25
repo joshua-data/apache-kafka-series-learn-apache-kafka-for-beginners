@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opensearch:opensearch-secure-sm:1.3.2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.opensearch" artifactId="opensearch-secure-sm" version="1.3.2" baseVersion="1.3.2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opensearch/opensearch-secure-sm/1.3.2/77c0379ac1405032c6dfc24f38789c5c41f1f22a/opensearch-secure-sm-1.3.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

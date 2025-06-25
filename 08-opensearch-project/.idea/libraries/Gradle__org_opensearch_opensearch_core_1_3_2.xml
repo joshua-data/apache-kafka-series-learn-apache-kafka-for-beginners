@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opensearch:opensearch-core:1.3.2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.opensearch" artifactId="opensearch-core" version="1.3.2" baseVersion="1.3.2" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opensearch/opensearch-core/1.3.2/c97431c79b43f1233218879d128cc2bf803a852f/opensearch-core-1.3.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

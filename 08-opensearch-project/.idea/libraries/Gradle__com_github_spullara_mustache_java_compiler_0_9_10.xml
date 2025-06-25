@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.spullara.mustache.java:compiler:0.9.10" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.github.spullara.mustache.java" artifactId="compiler" version="0.9.10" baseVersion="0.9.10" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.spullara.mustache.java/compiler/0.9.10/6111ae24e3be9ecbd75f5fe908583fc14b4f0174/compiler-0.9.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
