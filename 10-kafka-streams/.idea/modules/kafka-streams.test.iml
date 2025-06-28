@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="kafka-streams:test" external.linked.project.path="$MODULE_DIR$/../../kafka-streams" external.root.project.path="$MODULE_DIR$/../../kafka-streams" external.system.id="GRADLE" external.system.module.group="io.github.joshua_data" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output-test url="file://$MODULE_DIR$/../../kafka-streams/out/test/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../kafka-streams/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../kafka-streams/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../kafka-streams/src/test/resources" type="java-test-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="kafka-streams.main" />
+    <orderEntry type="library" name="Gradle: org.apache.kafka:kafka-streams:3.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-simple:1.7.36" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.36" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.13.3" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.kafka:kafka-clients:3.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.rocksdb:rocksdbjni:6.29.4.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.13.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.13.3" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.luben:zstd-jni:1.5.2-1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.lz4:lz4-java:1.8.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.xerial.snappy:snappy-java:1.1.8.4" level="project" />
+  </component>
+  <component name="TestModuleProperties" production-module="kafka-streams.main" />
+</module>
